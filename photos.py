@@ -7,12 +7,12 @@ FOLDER = "/home/pi/photos_window/data/"
 DELAY_PHOTOS = 60 * 2 # 2 minutes
 
 def run():
-    start_time = time()
+    start_time = time.time()
     file = time.strftime("%Y%m%d_%H%M.image.jpg")
     command = "raspistill -ex auto -fli auto -awb auto -q 25 -o {}{}".format(FOLDER, file)
     subprocess.run(command, shell=True, check=False)
-    end_time = time()
-    time.sleep(DELAY_PHOTOS - end_end - start_time)
+    end_time = time.time()
+    time.sleep(DELAY_PHOTOS - (end_time - start_time))
 
 
 if __name__ == '__main__':
